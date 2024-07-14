@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Soft skills trainer",
+  "description": "Pick a random picture and get a task to train your soft skills today",
   "icons": [
     {
       "src": "favicon.ico",
