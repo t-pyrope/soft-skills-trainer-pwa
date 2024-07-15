@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Cards} from "./components/Cards";
-import {InstallProposal} from "./components/InstallProposal";
+import {Header} from "./components/Header";
+import {TaskModal} from "./components/TaskModal";
 
 function App() {
+    const [selectedTaskId, setSelectedTaskId] = useState<null | number>(null);
 
   return (
     <div className="App">
       <main>
-          <h1>Soft skills trainer</h1>
+          <Header />
           <h2>Empathy and self-reflection</h2>
           <p>Pick a random bulb picture and get a task to train your empathy & self-reflection today</p>
-        <Cards />
-          <InstallProposal />
+        <Cards setSelectedTaskId={setSelectedTaskId} />
+          {selectedTaskId !== null && (
+              <TaskModal id={selectedTaskId} setSelectedTaskId={setSelectedTaskId} />
+          )}
       </main>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
+import classes from './Header.module.css';
 
-export const InstallProposal = () => {
+export const Header = () => {
     const [showInstallButton, setShowInstallButton] = useState(false)
     // Initialize deferredPrompt for use later to show browser install prompt.
     let deferredPromptRef = useRef<any>(null);
@@ -53,9 +54,10 @@ export const InstallProposal = () => {
         if (!deferredPromptRef.current) return;
         deferredPromptRef.current.prompt();
     }
-    return <>
-        {showInstallButton && (<button onClick={handleInstall}>Install</button>)}
-    </>
+    return <header className={classes.container}>
+        <h1>Soft skills trainer</h1>
+        {showInstallButton && (<button className={classes.button} onClick={handleInstall}>Install</button>)}
+    </header>
 }
 
 function getPWADisplayMode() {
