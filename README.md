@@ -11,4 +11,4 @@ npm run start
 ```
 
 ## Debugging on your Android device
-Check this link: ["Set up port forwarding"](https://developer.chrome.com/docs/devtools/remote-debugging/local-server?hl=en#port-forwarding)
+Check this answer on stackoverflow: ["It is possible with connecting the mobile phone via USB debugging..."](https://stackoverflow.com/a/78177124/13891817)
