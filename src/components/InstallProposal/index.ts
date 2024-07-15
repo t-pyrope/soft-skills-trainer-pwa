@@ -1,0 +1,1 @@
+export { InstallProposal } from './InstallProposal';
