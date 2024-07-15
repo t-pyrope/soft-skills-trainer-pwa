@@ -1,7 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import classes from './TaskModal.module.css';
 import {cards} from "../../data";
-import {Card} from "../Card";
 
 export const TaskModal = ({ id, setSelectedTaskId }: { id: number, setSelectedTaskId: React.Dispatch<React.SetStateAction<number | null>> }) => {
     const task = cards.find((card) => card.id === id)
@@ -12,14 +12,20 @@ export const TaskModal = ({ id, setSelectedTaskId }: { id: number, setSelectedTa
 
     if (!task) return null;
 
-    return <div className={classes.wrapper}>
-        <div className={classes.modal}>
-            <div className={classes.header}>
-                <Card src={task.src} id={task.id} />
+    return <motion.div className={classes.wrapper}>
+        <motion.div className={classes.modal} layoutId={`${task.id}`}>
+            <motion.div>
+            <motion.div className={classes.header}>
+                <motion.div
+                    className={classes.card}
+                    style={{ backgroundImage: `url(${task.src})` }}
+                    layoutId={`image ${id}`}
+                />
                 <span onClick={close} aria-label={'Close'} className={classes.close} />
 
-            </div>
+            </motion.div>
             {task.task}
-        </div>
-    </div>
+            </motion.div>
+        </motion.div>
+    </motion.div>
 }
