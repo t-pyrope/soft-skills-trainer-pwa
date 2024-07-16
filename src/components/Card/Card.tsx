@@ -1,6 +1,6 @@
-import React, { useEffect} from 'react';
+import React from 'react';
 import classes from './Card.module.css';
-import {LayoutGroup, motion, useAnimate} from 'framer-motion';
+import {LayoutGroup, motion} from 'framer-motion';
 
 export const Card = ({ src, id, setSelectedTaskId }: { src: string, id: number, setSelectedTaskId?: React.Dispatch<React.SetStateAction<number | null>> }) => {
     return <LayoutGroup><motion.article
