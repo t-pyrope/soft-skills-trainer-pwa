@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Cards} from "./components/Cards";
 import {Header} from "./components/Header";
@@ -7,6 +7,13 @@ import {AnimatePresence, LayoutGroup} from "framer-motion";
 
 function App() {
     const [selectedTaskId, setSelectedTaskId] = useState<null | number>(null);
+    const [, setCategories] = useState<any>();
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/categories`)
+            .then((res) => res.json())
+            .then((json) => setCategories(json.categories))
+    }, [])
 
   return (
     <div className="App">
